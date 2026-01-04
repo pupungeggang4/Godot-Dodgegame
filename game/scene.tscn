@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0b68f5aw77ee"]
+
+[ext_resource type="Script" uid="uid://vf1eo32jc68r" path="res://scene.gd" id="1_u3cyc"]
+[ext_resource type="FontFile" uid="uid://d0k02aqiy0ntc" path="res://font/neodgm.ttf" id="1_ulcgi"]
+[ext_resource type="Script" uid="uid://c1b8yxurgbcjq" path="res://text.gd" id="2_3253y"]
+[ext_resource type="Script" uid="uid://blq6j1fdo5hha" path="res://player.gd" id="2_nxogm"]
+[ext_resource type="Script" uid="uid://dv2r0dqmu6p58" path="res://bullet_list.gd" id="5_m7jmp"]
+
+[sub_resource type="Theme" id="Theme_nxogm"]
+default_font = ExtResource("1_ulcgi")
+default_font_size = 32
+
+[node name="Scene" type="Node2D"]
+script = ExtResource("1_u3cyc")
+
+[node name="Text" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 52.0
+theme = SubResource("Theme_nxogm")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Score: 0"
+script = ExtResource("2_3253y")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(400, 300)
+script = ExtResource("2_nxogm")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 1, 1, 1)
+
+[node name="BulletList" type="Node2D" parent="."]
+script = ExtResource("5_m7jmp")
